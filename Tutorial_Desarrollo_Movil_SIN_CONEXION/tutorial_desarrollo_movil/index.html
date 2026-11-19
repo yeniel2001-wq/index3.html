@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tutorial interactivo sobre desarrollo móvil: control de versiones, persistencia, sensores, multimedia, servicios, librerías, depuración y seguridad.">
+  <title>Tutorial de Desarrollo Móvil</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+<header class="hero" id="inicio">
+  <nav class="nav container" aria-label="Navegación principal">
+    <a class="brand" href="#inicio"><span class="brand-mark">DM</span> Desarrollo móvil</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#versiones">Versiones</a><a href="#datos">Datos</a><a href="#sensores">Sensores</a>
+      <a href="#multimedia">Multimedia</a><a href="#servicios">Servicios</a><a href="#herramientas">Herramientas</a>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">◐</button>
+  </nav>
+  <div class="hero-content container">
+    <p class="eyebrow">GUÍA DE APRENDIZAJE · APLICACIONES MÓVILES</p>
+    <h1>Construye mejores<br><span>aplicaciones móviles.</span></h1>
+    <p class="hero-copy">Un tutorial práctico para comprender las herramientas, procesos y componentes que hacen posible una aplicación móvil moderna.</p>
+    <a class="btn btn-primary" href="#contenido">Comenzar el tutorial <span>→</span></a>
+    <div class="hero-stats"><div><strong>06</strong><small>Unidades temáticas</small></div><div><strong>01</strong><small>Guía integrada</small></div><div><strong>100%</strong><small>Responsivo</small></div></div>
+  </div>
+  <div class="hero-orb orb-one"></div><div class="hero-orb orb-two"></div>
+</header>
+
+<main id="contenido" class="container">
+  <section class="intro section-pad">
+    <div><p class="eyebrow">RUTA DE APRENDIZAJE</p><h2>¿Qué aprenderás?</h2><p class="muted">Explora los fundamentos que permiten desarrollar, mantener y proteger aplicaciones para dispositivos móviles.</p></div>
+    <div class="intro-note"><span class="note-icon">✦</span><p><strong>Consejo:</strong> utiliza el índice para saltar a un tema o escribe una palabra en el buscador para localizar conceptos rápidamente.</p></div>
+  </section>
+
+  <div class="toolbar">
+    <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Buscar conceptos, herramientas o ejemplos..." aria-label="Buscar en el tutorial"></label>
+    <span id="searchStatus" class="search-status">6 unidades · 6 temas principales</span>
+  </div>
+
+  <section class="topic-section" id="versiones" data-searchable>
+    <div class="section-heading"><span class="number">01</span><div><p class="eyebrow">COLABORACIÓN Y SEGUIMIENTO</p><h2>Control de versiones</h2><p class="muted">Administra el historial de un proyecto y trabaja en equipo sin perder cambios.</p></div></div>
+    <div class="content-grid">
+      <article class="panel"><h3>¿Qué es?</h3><p>Es un sistema que registra los cambios realizados en archivos a lo largo del tiempo. Permite consultar versiones anteriores, comparar modificaciones, recuperar contenido y coordinar el trabajo de varias personas.</p><h4>¿Cómo funciona?</h4><ol class="steps"><li>Se crea un <b>repositorio</b> para guardar el proyecto.</li><li>Se modifican archivos y se revisan los cambios.</li><li>Se prepara una selección de cambios (<code>stage</code>).</li><li>Se registra una instantánea con un <code>commit</code> y un mensaje.</li><li>Se comparten los cambios con el equipo y se integran cuando corresponde.</li></ol></article>
+      <article class="panel accent-panel"><h3>Tipos de sistemas</h3><div class="mini-card"><b>Local</b><p>Guarda versiones en el mismo equipo. Es sencillo y funciona sin red, pero colaborar y compartir el historial resulta difícil.</p><span class="tag">Ejemplo: copias versionadas locales</span></div><div class="mini-card"><b>Centralizado (CVCS)</b><p>Un servidor conserva el repositorio principal y los usuarios obtienen una copia de trabajo. Facilita la administración central, pero depende del servidor y de la conexión para muchas operaciones.</p><span class="tag">Ejemplo: Subversion (SVN)</span></div><div class="mini-card"><b>Distribuido (DVCS)</b><p>Cada integrante tiene una copia completa del repositorio y su historial. Permite trabajar sin conexión y ofrece flexibilidad; requiere aprender a sincronizar e integrar ramas.</p><span class="tag">Ejemplo: Git</span></div></article>
+    </div>
+    <div class="panel"><h3>Características, ventajas y desventajas</h3><div class="table-wrap"><table><thead><tr><th>Tipo</th><th>Características</th><th>Ventajas</th><th>Desventajas</th></tr></thead><tbody>
+      <tr><td>Local</td><td>Historial en un solo dispositivo.</td><td>Simple, rápido y sin servidor.</td><td>Riesgo de pérdida del equipo; colaboración limitada.</td></tr>
+      <tr><td>Centralizado</td><td>Servidor central y copias de trabajo.</td><td>Control administrativo y punto único de referencia.</td><td>Dependencia del servidor y posible cuello de botella.</td></tr>
+      <tr><td>Distribuido</td><td>Copias completas e historial local.</td><td>Trabajo sin conexión, ramas ágiles y redundancia.</td><td>Puede requerir más espacio y coordinación al fusionar cambios.</td></tr>
+    </tbody></table></div><p class="small muted">Las ventajas y desventajas son generales; pueden variar según la herramienta y la forma de trabajo.</p></div>
+    <div class="panel"><h3>Rastreo y gestión de cambios</h3><p>El historial permite saber <b>qué</b> cambió, <b>quién</b> lo modificó, <b>cuándo</b> y, mediante mensajes o revisiones, <b>por qué</b>. Las ramas aíslan funciones; las comparaciones muestran diferencias; las fusiones incorporan trabajo y los conflictos se resuelven revisando las líneas modificadas.</p><div class="code-block"><div class="code-head">Comandos básicos de Git <button class="copy-btn" data-copy="git init&#10;git status&#10;git add .&#10;git commit -m &quot;Describe el cambio&quot;&#10;git branch nueva-funcion&#10;git push">Copiar</button></div><pre><code>git init
+git status
+git add .
+git commit -m "Describe el cambio"
+git branch nueva-funcion
+git push</code></pre></div><p><b>Ejemplo:</b> en una app escolar, una persona crea una rama para agregar recordatorios. Otra corrige el calendario. Después revisan e integran ambas mejoras en la rama principal.</p></div>
+  </section>
+
+  <section class="topic-section" id="datos" data-searchable>
+    <div class="section-heading"><span class="number">02</span><div><p class="eyebrow">ALMACENAMIENTO Y CONSULTA</p><h2>Persistencia y acceso a datos</h2><p class="muted">Conserva información aunque la aplicación se cierre o el dispositivo se reinicie.</p></div></div>
+    <div class="panel"><h3>Definición y características</h3><p>La <b>persistencia de datos</b> es la capacidad de guardar información para recuperarla posteriormente. Un mecanismo adecuado considera estructura, disponibilidad, rendimiento, seguridad, capacidad, sincronización y ciclo de vida de los datos.</p></div>
+    <div class="content-grid three">
+      <article class="panel"><div class="icon-tile">▤</div><h3>Archivos</h3><p>Guardan información como texto, JSON, imágenes, audio o documentos. Son útiles para contenido completo o documentos que no necesitan consultas relacionales complejas.</p><p class="small"><b>Ejemplo:</b> preferencias exportadas o una imagen descargada.</p><p class="small muted">Ventaja: formato flexible. Desventaja: buscar, actualizar y relacionar datos puede requerir lógica adicional.</p></article>
+      <article class="panel"><div class="icon-tile">▦</div><h3>Base de datos local</h3><p>Almacena datos estructurados en el dispositivo. SQLite es un motor relacional; Room es una biblioteca de persistencia que facilita trabajar con SQLite en Android.</p><p class="small"><b>Ejemplo:</b> tareas, fechas de entrega y materias sin conexión.</p><p class="small muted">Ventaja: consultas y relaciones eficientes. Desventaja: sincronizar varios dispositivos requiere una estrategia adicional.</p></article>
+      <article class="panel"><div class="icon-tile">☁</div><h3>Base de datos remota y servicios web</h3><p>Los datos viven en un servidor o servicio en la nube y se consultan mediante una API, comúnmente HTTP/HTTPS. Facilita compartir y sincronizar información.</p><p class="small"><b>Ejemplo:</b> iniciar sesión y consultar tareas desde distintos teléfonos.</p><p class="small muted">Ventaja: acceso compartido. Desventaja: depende de red/servidor y exige proteger la comunicación.</p></article>
+    </div>
+    <div class="panel"><h3>¿Qué datos se pueden almacenar?</h3><div class="table-wrap"><table><thead><tr><th>Forma</th><th>Datos adecuados</th><th>Ejemplos de uso</th></tr></thead><tbody>
+      <tr><td>Archivos</td><td>Texto, JSON, PDF, imágenes, audio y video.</td><td>Documentos, exportaciones, fotografías y caché.</td></tr>
+      <tr><td>Base local</td><td>Registros estructurados: números, texto, fechas, estados y relaciones.</td><td>Contactos propios de la app, inventario o tareas.</td></tr>
+      <tr><td>Remota</td><td>Datos compartidos, cuentas, catálogos y registros sincronizados.</td><td>Perfiles, compras, contenido y respaldo centralizado.</td></tr>
+    </tbody></table></div></div>
+    <div class="content-grid">
+      <article class="panel"><h3>Mecanismos de acceso</h3><ul class="clean-list"><li><b>Bibliotecas de clases:</b> reúnen funciones para leer y escribir datos. Ejemplos: APIs de archivos, preferencias y bibliotecas de red.</li><li><b>Clases de SQLite:</b> permiten crear tablas, insertar, consultar, actualizar y eliminar registros mediante SQL. En Android se recomienda considerar Room para reducir código repetitivo y validar consultas.</li><li><b>Mapeo relacional de objetos (ORM):</b> relaciona tablas con clases y filas con objetos. Facilita trabajar desde el lenguaje de programación; no elimina la necesidad de diseñar bien la base de datos.</li></ul></article>
+      <article class="panel"><h3>Autenticación y consumo de servicios web</h3><ol class="steps"><li>La app solicita credenciales o usa un proveedor de identidad.</li><li>El servidor valida la identidad y emite un token de acceso.</li><li>La app envía solicitudes HTTPS a la API, adjuntando el token cuando corresponde.</li><li>El servidor verifica permisos y devuelve datos, normalmente en JSON.</li><li>La app valida la respuesta, actualiza la interfaz y maneja errores o expiración del token.</li></ol><p class="small muted">Nunca guardes contraseñas en texto plano ni incluyas secretos privados dentro del código de la aplicación.</p></article>
+    </div>
+    <div class="callout"><b>Ejemplo práctico:</b> una aplicación de tareas guarda las tareas recientes en Room para consultarlas sin internet y sincroniza los cambios con una API cuando vuelve la conexión.</div>
+  </section>
+
+  <section class="topic-section" id="sensores" data-searchable>
+    <div class="section-heading"><span class="number">03</span><div><p class="eyebrow">INTERACCIÓN CON EL ENTORNO</p><h2>Gestión de sensores</h2><p class="muted">Obtén información del movimiento, orientación y condiciones del entorno.</p></div></div>
+    <div class="panel"><h3>¿Qué son los sensores?</h3><p>Son componentes físicos o virtuales que detectan cambios del entorno o del propio dispositivo y generan datos que una aplicación puede interpretar.</p></div>
+    <div class="sensor-grid">
+      <div class="sensor-item"><span>↔</span><div><b>Acelerómetro</b><p>Mide aceleración en los ejes; detecta movimiento, inclinación aproximada y sacudidas.</p></div></div>
+      <div class="sensor-item"><span>⟳</span><div><b>Giroscopio</b><p>Mide velocidad angular; ayuda a reconocer giros y rotaciones.</p></div></div>
+      <div class="sensor-item"><span>⌖</span><div><b>Magnetómetro</b><p>Mide el campo magnético y ayuda a estimar la orientación tipo brújula.</p></div></div>
+      <div class="sensor-item"><span>☼</span><div><b>Luz ambiental</b><p>Mide la iluminación alrededor del dispositivo.</p></div></div>
+      <div class="sensor-item"><span>⇧</span><div><b>Proximidad</b><p>Detecta objetos cercanos, por ejemplo al acercar el teléfono al rostro.</p></div></div>
+      <div class="sensor-item"><span>⌁</span><div><b>GPS / ubicación</b><p>Obtiene posición estimada mediante proveedores de ubicación; no es un sensor físico único.</p></div></div>
+    </div>
+    <div class="panel"><h3>Proceso de gestión</h3><div class="process"><div><strong>1</strong><b>Habilitación</b><p>Verificar que el sensor exista, solicitar permisos cuando aplique y explicar al usuario el uso de datos.</p></div><div><strong>2</strong><b>Obtención</b><p>Registrar un listener o suscribirse a actualizaciones con la frecuencia necesaria.</p></div><div><strong>3</strong><b>Procesamiento</b><p>Filtrar ruido, combinar lecturas, interpretar unidades y reaccionar a eventos.</p></div><div><strong>4</strong><b>Liberación</b><p>Detener las lecturas cuando ya no se necesitan para ahorrar batería y proteger la privacidad.</p></div></div><p class="small muted">Ejemplo: una app de actividad física obtiene aceleración durante el ejercicio, filtra variaciones y estima pasos. La precisión depende del dispositivo y del algoritmo.</p></div>
+  </section>
+
+  <section class="topic-section" id="multimedia" data-searchable>
+    <div class="section-heading"><span class="number">04</span><div><p class="eyebrow">EXPERIENCIA DE USUARIO</p><h2>Uso de recursos multimedia</h2><p class="muted">Integra elementos visuales y sonoros para comunicar y enriquecer la interacción.</p></div></div>
+    <div class="content-grid three">
+      <article class="panel media-card"><div class="media-symbol">▧</div><h3>Imágenes</h3><p>Fotografías, iconos, ilustraciones y gráficos. Se utilizan en perfiles, galerías y botones. Conviene optimizar tamaño y resolución.</p></article>
+      <article class="panel media-card"><div class="media-symbol">♫</div><h3>Audio</h3><p>Música, efectos y voz. Se reproduce, graba o procesa con componentes de audio, respetando permisos y controles del usuario.</p></article>
+      <article class="panel media-card"><div class="media-symbol">▶</div><h3>Video</h3><p>Clips grabados o transmitidos. Requieren decodificación, controles de reproducción y adaptación a la conexión.</p></article>
+      <article class="panel media-card"><div class="media-symbol">✧</div><h3>Animaciones</h3><p>Transiciones y movimiento entre estados. Orientan al usuario y ofrecen retroalimentación sin distraer.</p></article>
+      <article class="panel media-card"><div class="media-symbol">◌</div><h3>Elementos dinámicos</h3><p>Gráficas, mapas, visualizaciones y componentes que cambian según datos o acciones del usuario.</p></article>
+      <article class="panel media-card"><div class="media-symbol">▣</div><h3>Accesibilidad</h3><p>Usa texto alternativo, subtítulos, controles claros y evita depender únicamente del color o del sonido.</p></article>
+    </div>
+    <div class="content-grid">
+      <article class="panel"><h3>¿Dónde se almacenan?</h3><ul class="clean-list"><li><b>Recursos empaquetados:</b> dentro de carpetas de recursos del proyecto, por ejemplo <code>res/drawable</code>, <code>res/mipmap</code> o <code>res/raw</code> en Android.</li><li><b>Assets:</b> archivos originales que se leen desde la carpeta <code>assets</code>.</li><li><b>Almacenamiento del dispositivo:</b> contenido creado o descargado por el usuario.</li><li><b>Servidor o nube:</b> multimedia compartida o entregada bajo demanda.</li></ul></article>
+      <article class="panel"><h3>Componentes de software</h3><ul class="clean-list"><li>Visores de imágenes y bibliotecas de carga.</li><li>Reproductores y grabadores de audio/video.</li><li>Cámaras y selectores de archivos del sistema.</li><li>APIs de animación, gráficos y renderizado.</li><li>Decodificadores, caché y gestores de descargas.</li></ul><p class="small muted">En Android se encuentran APIs como CameraX, Media3/ExoPlayer y APIs gráficas, según la necesidad.</p></article>
+    </div>
+  </section>
+
+  <section class="topic-section" id="servicios" data-searchable>
+    <div class="section-heading"><span class="number">05</span><div><p class="eyebrow">PROCESOS Y CONECTIVIDAD</p><h2>Servicios y notificaciones</h2><p class="muted">Ejecuta tareas oportunas y comunica información relevante al usuario.</p></div></div>
+    <div class="panel"><h3>Conceptos básicos</h3><p>Un <b>servicio</b> es un componente que realiza operaciones sin necesitar una pantalla propia. Las <b>tareas en segundo plano</b> son trabajos que continúan cuando la app no está visible, sujetos a límites de batería y del sistema operativo. Una <b>notificación</b> es un mensaje que aparece fuera de la interfaz principal para informar o solicitar una acción.</p></div>
+    <div class="content-grid">
+      <article class="panel"><h3>Tareas en segundo plano</h3><p>Se usan para sincronizar datos, subir archivos, procesar contenido o actualizar información. Deben programarse con criterios de prioridad, conectividad, batería y duración.</p><p><b>Android:</b> WorkManager es apropiado para trabajo diferible y persistente. Para tareas inmediatas o visibles existen mecanismos específicos, sujetos a restricciones de versión.</p></article>
+      <article class="panel"><h3>Tratamiento de notificaciones</h3><ol class="steps"><li>Definir el evento que justifica avisar.</li><li>Solicitar permiso de notificaciones cuando la versión del sistema lo requiera.</li><li>Crear el canal de notificación en Android.</li><li>Preparar título, texto, icono y acción.</li><li>Publicar y permitir que el usuario gestione preferencias.</li></ol></article>
+    </div>
+    <div class="panel"><h3>Proceso de implementación</h3><div class="process"><div><strong>01</strong><b>Proveedor de contenido</b><p>Define datos que pueden compartirse entre aplicaciones mediante una interfaz controlada, con permisos y operaciones de consulta o modificación.</p></div><div><strong>02</strong><b>Tarea de fondo</b><p>Define el trabajo, sus restricciones y cuándo debe ejecutarse; gestiona reintentos y resultados.</p></div><div><strong>03</strong><b>Notificación</b><p>Construye el aviso, configura canal y permiso, lo publica y atiende las acciones del usuario.</p></div></div></div>
+    <div class="panel"><h3>Servicios de cómputo en la nube</h3><p>Permiten utilizar infraestructura, almacenamiento, bases de datos, autenticación, análisis y notificaciones mediante internet. Ejemplos de plataformas: Firebase, Amazon Web Services (AWS), Microsoft Azure y Google Cloud.</p><p class="small muted">La nube facilita escalar y sincronizar, pero implica costos, dependencia de conectividad, configuración de seguridad y cumplimiento de privacidad.</p></div>
+  </section>
+
+  <section class="topic-section" id="herramientas" data-searchable>
+    <div class="section-heading"><span class="number">06</span><div><p class="eyebrow">CALIDAD Y MANTENIMIENTO</p><h2>Librerías, toolkits, depuración y seguridad</h2><p class="muted">Aprovecha componentes existentes, detecta errores y protege la aplicación.</p></div></div>
+    <div class="content-grid">
+      <article class="panel"><h3>¿Qué es una librería?</h3><p>Es un conjunto reutilizable de código que ofrece funciones o componentes para resolver tareas concretas. La aplicación llama a la librería cuando necesita una operación.</p><p><b>Ejemplos:</b> Retrofit o Ktor Client para comunicación HTTP; Room para persistencia; Glide o Coil para carga de imágenes.</p></article>
+      <article class="panel"><h3>¿Qué es un toolkit?</h3><p>Es un conjunto integrado de herramientas, bibliotecas y utilidades para construir una aplicación o una parte de ella. Puede incluir componentes visuales, compilación, pruebas y documentación.</p><p><b>Ejemplos:</b> Android SDK, Jetpack Compose y Flutter SDK.</p></article>
+    </div>
+    <div class="panel"><h3>Diferencias entre toolkits móviles</h3><div class="table-wrap"><table><thead><tr><th>Toolkit / plataforma</th><th>Enfoque</th><th>Características</th><th>Consideración</th></tr></thead><tbody>
+      <tr><td>Android SDK</td><td>Desarrollo nativo Android.</td><td>APIs oficiales, emulador y herramientas de plataforma.</td><td>Principalmente orientado a Android; Kotlin y Java son opciones habituales.</td></tr>
+      <tr><td>Jetpack Compose</td><td>Interfaz nativa Android.</td><td>UI declarativa con Kotlin y componentes modernos.</td><td>Se integra en proyectos Android; no es un toolkit multiplataforma por sí solo.</td></tr>
+      <tr><td>Flutter</td><td>Multiplataforma.</td><td>UI basada en widgets y lenguaje Dart.</td><td>Permite compartir gran parte de la interfaz y lógica, aunque puede requerir integración nativa.</td></tr>
+      <tr><td>React Native</td><td>Multiplataforma.</td><td>Desarrollo de interfaces con JavaScript/TypeScript y React.</td><td>La integración y el rendimiento dependen de módulos y arquitectura usados.</td></tr>
+    </tbody></table></div></div>
+    <div class="content-grid">
+      <article class="panel"><h3>Depuración</h3><p>Es el proceso de localizar, analizar y corregir errores de un programa. Se utilizan puntos de interrupción, ejecución paso a paso, inspección de variables, registros y pruebas.</p><ul class="clean-list"><li><b>Android Studio Debugger:</b> permite pausar la ejecución e inspeccionar variables.</li><li><b>Logcat:</b> muestra mensajes y errores del sistema y de la app.</li><li><b>Profiler:</b> ayuda a analizar uso de CPU, memoria y energía.</li><li><b>Emulador y pruebas:</b> reproducen escenarios y dispositivos.</li></ul></article>
+      <article class="panel"><h3>Seguridad</h3><p>Consiste en proteger datos, identidad, comunicaciones y funcionamiento de la aplicación frente a accesos o acciones no autorizadas.</p><ul class="clean-list"><li>Solicitar solo permisos necesarios y explicar su uso.</li><li>Usar HTTPS y validar certificados.</li><li>Proteger credenciales y tokens; evitar secretos en el código.</li><li>Validar entradas y controlar accesos por roles.</li><li>Mantener dependencias actualizadas y revisar vulnerabilidades.</li><li>Probar, analizar y revisar el código antes de publicar.</li></ul></article>
+    </div>
+    <div class="callout"><b>Ejemplo:</b> si una pantalla se cierra inesperadamente, el desarrollador revisa Logcat, reproduce el error, coloca un breakpoint, inspecciona variables, corrige la causa y ejecuta pruebas de regresión.</div>
+  </section>
+
+  <section class="quiz-section" id="repaso">
+    <p class="eyebrow">COMPRUEBA LO APRENDIDO</p><h2>Repaso rápido</h2><p class="muted">Selecciona una respuesta para comprobar tus conocimientos.</p>
+    <div class="quiz-card">
+      <div class="quiz-question" id="quizQuestion">¿Qué sistema de control de versiones mantiene una copia completa del repositorio en cada equipo?</div>
+      <div class="quiz-options" id="quizOptions">
+        <button class="quiz-option" data-answer="0">Centralizado</button><button class="quiz-option" data-answer="1">Distribuido</button><button class="quiz-option" data-answer="2">Solo local</button>
+      </div>
+      <p id="quizFeedback" class="quiz-feedback" aria-live="polite"></p>
+      <button class="btn btn-primary" id="nextQuestion">Siguiente pregunta →</button>
+    </div>
+  </section>
+
+  <section class="references" id="referencias">
+    <p class="eyebrow">PARA PROFUNDIZAR</p><h2>Referencias consultadas</h2>
+    <p class="muted">Documentación oficial y guías técnicas utilizadas para elaborar este material. Consulta las páginas para ampliar cada tema.</p>
+    <ol class="reference-list">
+      <li>Android Developers. (s. f.). <a href="https://developer.android.com/develop/ui/views/notifications" target="_blank" rel="noopener"><em>About notifications in Views</em></a>. https://developer.android.com/develop/ui/views/notifications</li>
+      <li>Android Developers. (s. f.). <a href="https://developer.android.com/training/data-storage" target="_blank" rel="noopener"><em>Data and file storage overview</em></a>. https://developer.android.com/training/data-storage</li>
+      <li>Android Developers. (s. f.). <a href="https://developer.android.com/studio/debug" target="_blank" rel="noopener"><em>Debug your app</em></a>. https://developer.android.com/studio/debug</li>
+      <li>Android Developers. (s. f.). <a href="https://developer.android.com/training/data-storage/room" target="_blank" rel="noopener"><em>Save data in a local database using Room</em></a>. https://developer.android.com/training/data-storage/room</li>
+      <li>Android Developers. (s. f.). <a href="https://developer.android.com/develop/sensors-and-location/sensors/sensors_overview" target="_blank" rel="noopener"><em>Sensors overview</em></a>. https://developer.android.com/develop/sensors-and-location/sensors/sensors_overview</li>
+      <li>Android Developers. (s. f.). <a href="https://developer.android.com/develop/background-work/background-tasks/persistent" target="_blank" rel="noopener"><em>Task scheduling</em></a>. https://developer.android.com/develop/background-work/background-tasks/persistent</li>
+      <li>Android Open Source Project. (s. f.). <a href="https://source.android.com/docs/security/best-practices/app" target="_blank" rel="noopener"><em>App security best practices</em></a>. https://source.android.com/docs/security/best-practices/app</li>
+      <li>Flutter. (s. f.). <a href="https://docs.flutter.dev/" target="_blank" rel="noopener"><em>Flutter documentation</em></a>. https://docs.flutter.dev/</li>
+      <li>Git. (s. f.). <a href="https://git-scm.com/docs/user-manual" target="_blank" rel="noopener"><em>Git user manual</em></a>. https://git-scm.com/docs/user-manual</li>
+      <li>GitHub Docs. (s. f.). <a href="https://docs.github.com/en/get-started/using-git/about-git" target="_blank" rel="noopener"><em>About Git</em></a>. https://docs.github.com/en/get-started/using-git/about-git</li>
+      <li>React Native. (s. f.). <a href="https://reactnative.dev/docs/getting-started" target="_blank" rel="noopener"><em>Introduction</em></a>. https://reactnative.dev/docs/getting-started</li>
+    </ol>
+  </section>
+</main>
+<footer><div class="container footer-inner"><a class="brand" href="#inicio"><span class="brand-mark">DM</span> Desarrollo móvil</a><p>Tutorial académico · HTML, CSS y JavaScript</p><a href="#inicio">Volver arriba ↑</a></div></footer>
+</body>
+</html>

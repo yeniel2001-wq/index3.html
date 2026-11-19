@@ -1,0 +1,16 @@
+TUTORIAL DE DESARROLLO MOVIL - VERSION SIN CONEXION
+
+COMO EJECUTARLO SIN INTERNET
+1. Extrae toda la carpeta "tutorial_desarrollo_movil" del archivo ZIP.
+2. Abre la carpeta.
+3. Haz doble clic en "index.html".
+4. El tutorial se abrira en tu navegador y podras utilizarlo sin conexion.
+
+IMPORTANTE
+- No elimines ni separes las carpetas css y js del archivo index.html.
+- El diseño utiliza fuentes instaladas en el sistema, sin descargar fuentes externas.
+- El menu, el cambio de tema, el buscador y el cuestionario funcionan localmente.
+- Los botones para copiar incluyen una alternativa para navegadores que abren el archivo directamente.
+- Los enlaces a documentación externa de las referencias solo se abriran cuando tengas internet.
+
+No necesitas instalar programas ni iniciar un servidor para consultar el tutorial.
